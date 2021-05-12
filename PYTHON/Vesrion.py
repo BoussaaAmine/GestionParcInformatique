@@ -6,6 +6,20 @@ class Version:
     auteur = "Omar & Amine"
     licens = ""
 
+
+
+#################################################
+######              Gestion              ########
+######                Des                ########
+######              Versions             ########
+######       Auto Version & License      ########
+#################################################
+
+
+
+#################################################
+######       Récupére dernière info      ########
+#################################################
     def __init__(self):
         monFichier = open("version.txt", "r")
         maLine=monFichier.readline()
@@ -17,9 +31,17 @@ class Version:
         monFichier.close()
 
     
+#################################################
+######     Auto genere license 50 char    #######
+#################################################
     def newLicense(self):
         letters = string.ascii_letters
         self.licens = ''.join(random.choice(letters) for i in range(50))
+        
+        
+#################################################
+###### Update and save des modifications ########
+#################################################
 
     def save(self):
         self.Version +=  0.1
@@ -31,5 +53,11 @@ class Version:
         return "la nouvelle license est : " + self.licens
 
 
+
+
+#################################################
+######     Exec le save et automatise     #######
+######             la gestion             #######
+#################################################
 v = Version()
 print(v.save())
