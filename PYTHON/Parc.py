@@ -10,27 +10,88 @@
 
 from Machine import Machine
 class Parc:
-
     allmachine = {}
-
-    #initie le parc des machines
+    
+    
+#################################################
+############## init parc machines ###############
+#################################################
     def __init__(self):
         dico = {'nom':'','ip':'127.0.0.1','cpu':0,'ram':0,'disk':0,'s_disk':0,'os':'','vers':''}
         self.allmachine = Machine(dico).lister()
-    #Check if key exist in dictionnary allmachine
+        
+        
+        
+#################################################
+######    Les Méthodes de Vérifcations   ########
+#################################################
+    
+#################################################
+###### Saisie & Vérifie que c'est un int ########
+#################################################
+    def saisieINT(self,msg):
+        test = False
+        n=0
+        while (not test):
+            try:
+                num = input(msg).strip()
+                if (num == 'q' and n==1):
+                    return 'q'
+                n+=1
+                if (int(num)):
+                    return num
+            except ValueError:
+                print("Must be integer (q to leave)")
+        return num
+        
+        
+#################################################
+###### Saisie & Vérifie que c'est un int ########
+######       avec default res = 1        ########
+#################################################
+    def saisieIntDef1(self,msg):
+        test = False
+        n=0
+        while (not test):
+            try:
+                num = input(msg).strip()
+                if (num == 'q' and n==1):
+                    return 'q'
+                n+=1
+                if(num == ''):
+                    num = 1
+                    test = True
+                else :
+                    if (int(num)<1):
+                        test=False
+                        print("Must be integer and upper than 0 (q to leave)")
+                    else :
+                        test = True
+            except ValueError:
+                print("Must be integer and upper than 0 (q to leave)")
+        return num
+    
+
+#################################################
+############## Verifie Key unique ###############
+#################################################
     def checkKey(self, key):
         if key in self.allmachine.keys():
             return True
         else:
             return False
-
-    #verification adresse ip
+            
+#################################################
+############## Verifie IP correct ###############
+##############      no char       ###############
+##############        IPV4        ###############
+##############  between 0and 255  ###############
+#################################################
     def checkip(self,ip):
         try:
             myip = ip.split(".")
             if(len(myip) != 4):
                 return False
-            #if(type(int(myip[0])) is int and type(int(myip[1])) is int and type(int(myip[2])) is int and type(int(myip[3])) is int):
             p1 = int(myip[0])
             p2 = int(myip[1])
             p3 = int(myip[2])
@@ -43,15 +104,28 @@ class Parc:
             return False
         except ValueError:
             return False
-    # recherche une machine par hostname
+            
+#################################################
+######                                   ########
+######                                   ########
+######               CRUD                ########
+######                                   ########
+######                                   ########
+#################################################
+            
+#################################################
+########### Recherche Machine by key ############
+#################################################
     def rechercher(self):
         try:
             hostname = input("Veuillez saisir le HostName Rechercher: ")
             return self.allmachine[hostname].affiche()
         except KeyError:
             return "\n ----------- HostName not found ------------\n"
-
-    # supprime une machine par hostname
+            
+#################################################
+########### Supprime Machine by key  ############
+#################################################
     def delete(self):
         try:
             hostname = input("Veuillez saisir le HostName Rechercher: ")
@@ -59,8 +133,12 @@ class Parc:
             return "\n ----------- machine " + hostname + " supprimé ------------\n"
         except KeyError:
             return "HostName not found"
-
-    # met a jour une machine dans allmachine
+            
+            
+            
+#################################################
+############ Modifie Machine by key #############
+#################################################
     def updateMachine(self):
         dico = {'nom':'','ip':'127.0.0.1','cpu':0,'ram':0,'disk':0,'s_disk':0,'os':'','vers':''}
         try:
@@ -68,19 +146,32 @@ class Parc:
             dico['ip'] = input("Veuillez saisir la nouvelle adresse IP: ")
             while(self.checkip(dico['ip'])==False):
                 dico['ip'] = input("adresse ip invalide, reessayer (1.0.0.1-255.255.255.255) ")
-            dico['cpu'] = input("Veuillez saisir Nombre CPU: ")
-            dico['ram'] = input("Veuillez saisir la taille de RAM: ")
-            dico['disk'] = input("Veuillez saisir le nombre de disque(s): ")
-            dico['s_disk'] = input("Veuillez saisir la tailles de(s) disque(s): ")
+            dico['cpu'] = self.saisieIntDef1("Veuillez saisir Nombre CPU (default 1): ")
+            if (dico['cpu'] == 'q'):
+                return "update annuler"
+            dico['ram'] = self.saisieINT("Veuillez saisir la taille de RAM (GO): ")
+            if (dico['ram'] == 'q'):
+                return "update annuler"
+            dico['disk'] = self.saisieIntDef1("Veuillez saisir le nombre de disque(s) (default 1): ")
+            if (dico['disk'] == 'q'):
+                return "update annuler"
+            dico['s_disk'] = self.saisieINT("Veuillez saisir la tailles de(s) disque(s) (GO): ")
+            if (dico['s_disk'] == 'q'):
+                return "update annuler"
             dico['os']  = input("Veuillez saisir l'os: ")
             dico['vers'] = input("Veuillez saisir la version: ")
             self.allmachine[dico['nom']].UpDate(dico)
             return "\n ----------- machine " + dico['nom'] + " mis à jour------------\n"
         except KeyError:
             return "\n ----------- HostName not found------------\n"
-
-    # ecrase le fichier machines avec l'ensemble des modification apporté a la liste des machines (fin du programme)
-    #version.strip() permet de supprimé le saut de ligne en trop a la fin de la machine
+    
+            
+#################################################
+######     Enregistre les changements     #######
+######    Dans le fichier des machines    #######
+###### écrase le contenue par un nouveau  #######
+######   version.strip() supprime le \r   #######
+#################################################
     def save(self):
         monFichier = open("machine.txt", "w")
         newfile = ""
@@ -89,15 +180,23 @@ class Parc:
         monFichier.write(newfile)
         monFichier.close()
         return "\n ----------- les modifications ont été enregistrées------------\n"
-
-    #afficher tout le parc
+        
+        
+#################################################
+########## Liste les machines du parc ###########
+#################################################
     def all(self):
         allparc = ""
         for cle, valeur in self.allmachine.items():
             allparc += valeur.affiche() + "\n ---------------- \n" 
         return allparc
-        #Ajouter machine au marc
+        
+        
+#################################################
+##### Ajoute une machine depuis la console ######
+#################################################
     def add(self):
+        test = False
         dico = {'nom':'','ip':'','cpu':0,'ram':0,'disk':0,'s_disk':0,'os':'','vers':''}
         dico['nom'] = input("Veuillez saisir le HostName de la nouvelle machine: ")
         if(self.checkKey(dico['nom'])):
@@ -105,13 +204,48 @@ class Parc:
         dico['ip'] = input("Veuillez saisir son adresse IP: ")
         while(self.checkip(dico['ip'])==False):
             dico['ip'] = input("adresse ip invalide, reessayer (1.0.0.1-255.255.255.255) ")
-        dico['cpu'] = input("Veuillez saisir Nombre CPU: ")
-        dico['ram'] = input("Veuillez saisir la taille de RAM: ")
-        dico['disk'] = input("Veuillez saisir le nombre de disque(s): ")
-        dico['s_disk'] = input("Veuillez saisir la tailles de(s) disque(s): ")
+        dico['cpu'] = self.saisieIntDef1("Veuillez saisir Nombre CPU (default 1): ")
+        if (dico['cpu'] == 'q'):
+            return "ajout annuler"
+        dico['ram'] = self.saisieINT("Veuillez saisir la taille de RAM (GO): ")
+        if (dico['ram'] == 'q'):
+            return "ajout annuler"
+        dico['disk'] = self.saisieIntDef1("Veuillez saisir le nombre de disque(s) (default 1): ")
+        if (dico['disk'] == 'q'):
+            return "ajout annuler"
+        dico['s_disk'] = self.saisieINT("Veuillez saisir la tailles de(s) disque(s) (GO): ")
+        if (dico['s_disk'] == 'q'):
+            return "ajout annuler"
         dico['os']  = input("Veuillez saisir l'os: ")
         dico['vers'] = input("Veuillez saisir la version: ")
         self.allmachine[dico['nom']] = Machine(dico)
-        return "\n ----------- machine " + dico['nom'] + " ajoutée------------\n"
+        return "\n ----------- machine " + dico['nom'] + " ajoutée------------\n"  
     
     
+
+#################################################
+################ Méthode de l'API ###############
+#################################################
+
+#################################################
+##########   Les méthode d'affichage    #########
+##########   ne demande pas de saisie   #########
+##############   Rien a changer    ##############
+#################################################
+
+#################################################
+################   Suppression    ###############
+#################################################
+    def deleteAPI(self,hostname):
+        del self.allmachine[hostname]
+        self.save()
+
+#################################################
+###############       Ajout       ###############
+#################################################
+    def add2(self,dico):
+        if(self.checkKey(dico['nom'])):
+            return "Machine already exists"
+        self.allmachine[dico['nom']] = Machine(dico)
+        self.save()
+        return "Machine Added"

@@ -1,3 +1,6 @@
 amine,12.0.0.1,1,32,1,1024,debian,10
 post_dev,127.0.0.10,1,8,512,1024,debian,10
 omar,127.0.0.52,1,8,1,512,debian,10
+dev python,192.168.1.25,,8,,512,debian,10
+Host_Name2,127.0.0.3,1,4,1,512,Debian,10
+Michael,127.0.0.1,1,4,1,512,Debian,10

@@ -25,7 +25,7 @@ class Machine:
         self.nb_disk = dico['disk']
         self.size_disk = dico['s_disk']
         self.os = dico['os'] 
-        self.version = dico['vers']
+        self.version = dico['vers'].strip()
     
     
     #Définition de la méthode lister
@@ -50,7 +50,7 @@ class Machine:
         monFichier.close()
         return dicoreturn
     
-    # afficher la machine
+    # afficher la machine (ToString)
     def affiche(self):
         return " Hostname : {} \n IP : {} \n Nombre de CPU : {} \n RAM {} GO \n Nombre de Disque(s) : {} \n Taille disque(s) : {} GO \n OS : {} \n Version : {}".format(self.nom,self.ip,self.nb_cpu,self.ram,self.nb_disk,self.size_disk,self.os,self.version)
     

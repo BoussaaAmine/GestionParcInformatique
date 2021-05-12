@@ -11,6 +11,12 @@ parcmachine = Parc()
 choix=''
 print("Ce programme permet de gerer votre parc \n")
 
+#################################################
+######  Boucle while l'use ne quitte pas  #######
+######          Affiche le menu           #######
+######           Exec le choix            #######
+###### Enregistre les changement a la fin #######
+#################################################
 while (choix !='q'):
     print('1) Afficher les machines du parc')
     print('2) Rechercher une machine')
@@ -33,5 +39,3 @@ while (choix !='q'):
         print(parcmachine.save())
     else:
         print("Choix non connu ! ")
-
-#parcmachine.allmachine['omar'].affiche()
