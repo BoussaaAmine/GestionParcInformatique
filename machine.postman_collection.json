@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "3ce5f1b6-3542-43dd-8413-815f35858504",
+		"name": "machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nom",
+							"value": "blavla",
+							"type": "text"
+						},
+						{
+							"key": "ip",
+							"value": "1.1.1.1",
+							"type": "text"
+						},
+						{
+							"key": "nb_cpu",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ram",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "nb_disk",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "size_disk",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "os",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/machine",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"machine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/machine",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"machine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/machine/aa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"machine",
+						"aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/machine/blavla",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"machine",
+						"blavla"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ip",
+							"value": "127.0.0.3",
+							"type": "text"
+						},
+						{
+							"key": "nb_cpu",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ram",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "nb_disk",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "size_disk",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "os",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/machine/Host_Name2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"machine",
+						"Host_Name2"
+					],
+					"query": [
+						{
+							"key": "ip",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "nb_cpu",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "ram",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "nb_disk",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "size_disk",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "os",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "version",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
