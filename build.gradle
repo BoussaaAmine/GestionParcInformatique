@@ -18,7 +18,7 @@ task dependances(type:Exec, dependsOn: purge) {
 def tarfile = "application-" + version
 
 task packageDistribution(type: Zip, dependsOn: dependances) {
-    from ('.') { into '.' }
+    from ('PYTHON') { into 'PYTHON' }
     archiveFileName = tarfile + ".zip"
     destinationDirectory = file("build")
 }
