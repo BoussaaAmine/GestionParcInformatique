@@ -3,7 +3,7 @@ import string
 class Version:
 
     __prop = {}
-    __file = "/var/lib/jenkins/workspace/gradleproperties/"
+    __file = "/var/lib/jenkins/workspace/GestionParcInformatique/"
     #__file = "/home/rsync/tp_python/"
 
 
