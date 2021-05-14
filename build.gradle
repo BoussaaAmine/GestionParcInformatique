@@ -14,7 +14,7 @@ task dependances(type:Exec, dependsOn: purge) {
    ext.output = { return standardOutput.toString() }
 }
 
-//def tarfile = "application-" + version
+def tarfile = "application-" + version
 
 task packageDistribution(type: Zip, dependsOn: dependances) {
     from ('PYTHON') { into '.' }
