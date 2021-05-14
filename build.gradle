@@ -9,6 +9,7 @@ task dependances(type:Exec, dependsOn: purge) {
 	println 'hello'
   executable 'sh'
   args '-c', 'pip3 install flask'
+  
    standardOutput = new ByteArrayOutputStream()
    ext.output = { return standardOutput.toString() }
 }
@@ -21,7 +22,14 @@ task packageDistribution(type: Zip, dependsOn: dependances) {
     destinationDirectory = file("build")
 }
 
-task up(type:Exec, dependsOn: packageDistribution) {
+task version(type:Exec, dependsOn: packageDistribution) {
+	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
+	commandLine 'python', 'Vesrion.py'
+
+}
+
+
+task up(type:Exec, dependsOn: version) {
  executable 'sh'
 
  args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+version+'.zip http://192.168.1.12:8081/repository/nexus-tpp/application-python/application-'+version+'.zip'
