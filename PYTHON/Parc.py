@@ -8,7 +8,7 @@
 
 
 
-from Machine import Machine
+from machine import Machine
 class Parc:
     allmachine = {}
     
