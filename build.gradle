@@ -22,14 +22,14 @@ task packageDistribution(type: Zip, dependsOn: dependances) {
     destinationDirectory = file("build")
 }
 
-task version(type:Exec, dependsOn: packageDistribution) {
+task versionup(type:Exec, dependsOn: packageDistribution) {
 	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
 	commandLine 'python', 'Vesrion.py'
 
 }
 
 
-task up(type:Exec, dependsOn: version) {
+task up(type:Exec, dependsOn: versionup) {
  executable 'sh'
 
  args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+version+'.zip http://192.168.1.12:8081/repository/nexus-tpp/application-python/application-'+version+'.zip'
