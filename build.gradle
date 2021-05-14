@@ -1,4 +1,4 @@
-version = '2.0'
+
 
 task purge(type:Delete) {
   //println 'Cleaning up old files'
