@@ -74,7 +74,7 @@ class Version:
         monFichier = open(self.__file + "gradle.properties", "w")
         v = "%.1f" % float(self.__prop['Version'])
         print("la version d'update est  = {}".format(v))
-        monFichier.write("systemProp.http.proxyHost={}\nsystemProp.http.proxyPort={}\nsystemProp.http.nonProxyHosts={}\nsystemProp.https.proxyHost={}\nsystemProp.https.proxyPort={}\nsystemProp.https.nonProxyHosts={}\nnom={}\nVersion={}\nauteur={}\nlicens={}\n".format(self.__prop['systemProp.http.proxyHost'],self.__prop['systemProp.http.proxyPort'],self.__prop['systemProp.http.nonProxyHosts'],self.__prop['systemProp.https.proxyHost'],self.__prop['systemProp.https.proxyPort'],self.__prop['systemProp.https.nonProxyHosts'],self.__prop['nom'],v,self.__prop['auteur'],self.__prop['licens']))
+        monFichier.write("systemProp.http.proxyHost={}\nsystemProp.http.proxyPort={}\nsystemProp.http.nonProxyHosts={}\nsystemProp.https.proxyHost={}\nsystemProp.https.proxyPort={}\nsystemProp.https.nonProxyHosts={}\nnom={}\nversion={}\nauteur={}\nlicens={}\n".format(self.__prop['systemProp.http.proxyHost'],self.__prop['systemProp.http.proxyPort'],self.__prop['systemProp.http.nonProxyHosts'],self.__prop['systemProp.https.proxyHost'],self.__prop['systemProp.https.proxyPort'],self.__prop['systemProp.https.nonProxyHosts'],self.__prop['nom'],v,self.__prop['auteur'],self.__prop['licens']))
         monFichier.close()
         return "la nouvelle license est : " + self.__prop['licens']
 
