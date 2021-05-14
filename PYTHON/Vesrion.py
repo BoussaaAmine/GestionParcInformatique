@@ -37,8 +37,8 @@ class Version:
             maLine=monFichier.readline()
             self.__prop['nom'] = maLine.split("=")[1].strip()
             maLine=monFichier.readline()
-            self.__prop['Version'] = float(maLine.split("=")[1].strip())
-            print("la version d'init = {}".format(self.__prop['Version']))
+            self.__prop['version'] = float(maLine.split("=")[1].strip())
+            print("la version d'init = {}".format(self.__prop['version']))
             maLine=monFichier.readline()
             self.__prop['auteur'] = maLine.split("=")[1].strip()
             maLine=monFichier.readline()
@@ -53,7 +53,7 @@ class Version:
             self.__prop['systemProp.https.proxyPort']='8081'
             self.__prop['systemProp.https.nonProxyHosts']='192.168.1.12'
             self.__prop['nom'] = "Gestion Parc Informatique"
-            self.__prop['Version'] = 0.9
+            self.__prop['version'] = 0.9
             self.__prop['auteur'] = "Omar & Amine"
             self.__prop['licens'] = self.newLicense()
             print("didn t get file")
@@ -69,10 +69,10 @@ class Version:
 ###### Update and save des modifications ########
 #################################################
     def save(self):
-        self.__prop['Version'] +=  0.1
+        self.__prop['version'] +=  0.1
         self.newLicense()
         monFichier = open(self.__file + "gradle.properties", "w")
-        v = "%.1f" % float(self.__prop['Version'])
+        v = "%.1f" % float(self.__prop['version'])
         print("la version d'update est  = {}".format(v))
         monFichier.write("systemProp.http.proxyHost={}\nsystemProp.http.proxyPort={}\nsystemProp.http.nonProxyHosts={}\nsystemProp.https.proxyHost={}\nsystemProp.https.proxyPort={}\nsystemProp.https.nonProxyHosts={}\nnom={}\nVersion={}\nauteur={}\nlicens={}\n".format(self.__prop['systemProp.http.proxyHost'],self.__prop['systemProp.http.proxyPort'],self.__prop['systemProp.http.nonProxyHosts'],self.__prop['systemProp.https.proxyHost'],self.__prop['systemProp.https.proxyPort'],self.__prop['systemProp.https.nonProxyHosts'],self.__prop['nom'],v,self.__prop['auteur'],self.__prop['licens']))
         monFichier.close()
