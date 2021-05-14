@@ -32,7 +32,7 @@ task versionup(type:Exec, dependsOn: packageDistribution) {
 task up(type:Exec, dependsOn: versionup) {
  executable 'sh'
 
- args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+Version+'.zip http://192.168.1.12:8081/repository/nexus-tpp/application-python/application-'+Version+'.zip'
+ args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+version+'.zip http://192.168.1.12:8081/repository/nexus-tpp/application-python/application-'+version+'.zip'
  standardOutput = new ByteArrayOutputStream()
  ext.output = { return standardOutput.toString() }
 }
