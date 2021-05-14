@@ -53,7 +53,7 @@ class Version:
             self.__prop['systemProp.https.proxyPort']='8081'
             self.__prop['systemProp.https.nonProxyHosts']='192.168.1.12'
             self.__prop['nom'] = "Gestion Parc Informatique"
-            self.__prop['Version'] = 1.0
+            self.__prop['Version'] = 0.9
             self.__prop['auteur'] = "Omar & Amine"
             self.__prop['licens'] = self.newLicense()
             print("didn t get file")
