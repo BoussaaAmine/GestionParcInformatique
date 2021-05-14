@@ -27,8 +27,6 @@ task versionup(type:Exec, dependsOn: packageDistribution) {
 	commandLine 'python3', 'Vesrion.py'
 
 }
-
-
 task up(type:Exec, dependsOn: versionup) {
  executable 'sh'
 
