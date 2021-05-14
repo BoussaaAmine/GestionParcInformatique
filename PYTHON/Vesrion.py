@@ -20,8 +20,8 @@ class Version:
 ######       Récupére dernière info      ########
 #################################################
     def __init__(self):
-        monFichier = open(self.__file + "gradle.properties", "r")
         try :
+            monFichier = open(self.__file + "gradle.properties", "r")
             maLine=monFichier.readline()
             self.__prop['systemProp.http.proxyHost']=maLine.split("=")[1].strip()
             maLine=monFichier.readline()
@@ -42,6 +42,8 @@ class Version:
             self.__prop['auteur'] = maLine.split("=")[1].strip()
             maLine=monFichier.readline()
             self.__prop['licens'] = maLine.split("=")[1].strip()
+            monFichier.close()
+            print("got file")
         except IndexError:
             self.__prop['systemProp.http.proxyHost']='proxy'
             self.__prop['systemProp.http.proxyPort']='8081'
@@ -53,7 +55,7 @@ class Version:
             self.__prop['Version'] = 1.0
             self.__prop['auteur'] = "Omar & Amine"
             self.__prop['licens'] = self.newLicense()
-        monFichier.close()
+            print("didn t get file")
     
 #################################################
 ######     Auto genere license 50 char    #######
