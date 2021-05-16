@@ -77,7 +77,7 @@ http://192.168.1.21:8081/
 - l'interface suivante s'affiche 
 
 
-![This is a alt text.](capture/Nexus1.png "image interface Nexsus.")
+![image interface Nexsus1.](/capture/Nexus1.png "image interface Nexsus.")
 
 
 
