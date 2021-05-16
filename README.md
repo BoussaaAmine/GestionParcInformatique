@@ -75,7 +75,7 @@ sudo cat /opt/nexus/sonatype-work/nexus3/admin.password
 http://192.168.1.21:8081/
 ```
 - l'interface suivante s'affiche 
--![image info](./pictures/Nexus1.png)
+-![image info](../main/capture/Nexus1.png)
 
 
 
