@@ -77,10 +77,28 @@ http://192.168.1.21:8081/
 - l'interface suivante s'affiche 
 
 
-![image interface Nexsus1.](/capture/Nexus1.PNG "image interface Nexsus.")
+![image interface Nexsus1.](/capture/Nexus1.PNG "image interface Nexsus1.")
+
+- Aller à Sing in, s'identifier avec login : admin et mot de passe récupérer dans l'étape présédente, puis Next
 
 
+![image interface Nexsus2.](/capture/Nexus2.PNG "image interface Nexsus2.")
 
+- Modifer le mot de passe, puis Next 
+
+![image interface Nexsus3.](/capture/Nexus3.PNG "image interface Nexsus3.")
+
+- Choisir l'option Enable anonymous access, puis Next
+
+![image interface Nexsus4.](/capture/Nexus4.PNG "image interface Nexsus4.")
+
+- Choisir create repository
+
+![image interface Nexsus5.](/capture/Nexus5.PNG "image interface Nexsus5.")
+
+- Choisir l'option  raw(hosted)
+
+![image interface Nexsus6.](/capture/Nexus6.PNG "image interface Nexsus6.")
 
 
 
