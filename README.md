@@ -75,7 +75,8 @@ sudo cat /opt/nexus/sonatype-work/nexus3/admin.password
 http://192.168.1.21:8081/
 ```
 - l'interface suivante s'affiche 
--![image info](../main/capture/Nexus1.png)
+
+![image info](main/capture/Nexus1.png)
 
 
 
@@ -95,3 +96,4 @@ vagrant ssh srvjenkins
 =======
 ##End
 >>>>>>> eca7d36d3c023466a509d03f65b71aac708d5a6c
+https://github.com/BoussaaAmine/GestionParcInformatique/tree/main/capture
