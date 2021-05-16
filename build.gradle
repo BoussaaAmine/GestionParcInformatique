@@ -22,7 +22,7 @@ task packageDistribution(type: Zip, dependsOn: dependances) {
 }
 
 task versionup(type:Exec, dependsOn: packageDistribution) {
-	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
+	workingDir 'PYTHON'
 	commandLine 'python3', 'Vesrion.py'
 
 }
@@ -36,14 +36,14 @@ task up(type:Exec, dependsOn: versionup) {
 
 task API(type:Exec, dependsOn: up ) {
 	println 'Test API'
-	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
+	workingDir 'PYTHON'
 	commandLine 'python3', 'ConnectAPI.py'
 
 }
 
 task test(type:Exec ) {
 	println 'Test Unitaire'
-	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
+	workingDir 'PYTHON'
 	commandLine 'python3', 'test_IP.py'
 
 }
