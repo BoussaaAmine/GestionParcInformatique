@@ -1,12 +1,10 @@
-
-
 task purge(type:Delete) {
   //println 'Cleaning up old files'
   delete 'build'
 }
 
 task dependances(type:Exec, dependsOn: purge) {
-	println 'hello'
+	println 'Installation Flask'
   executable 'sh'
   args '-c', 'pip3 install flask'
   
@@ -17,6 +15,7 @@ task dependances(type:Exec, dependsOn: purge) {
 def tarfile = "application-" + version
 
 task packageDistribution(type: Zip, dependsOn: dependances) {
+	println 'Création du package'
     from ('PYTHON') { into '.' }
     archiveFileName = tarfile + ".zip"
     destinationDirectory = file("build")
@@ -28,21 +27,22 @@ task versionup(type:Exec, dependsOn: packageDistribution) {
 
 }
 task up(type:Exec, dependsOn: versionup) {
+ println 'Upload vers Nexus'
  executable 'sh'
-
- args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+version+'.zip http://192.168.1.12:8081/repository/nexus-tpp/application-python/application-'+version+'.zip'
+ args '-c', 'curl -v --user "admin:admin" --upload-file build/application-'+version+'.zip http://192.168.1.13:8083/repository/nexus-tpp/application-python/application-'+version+'.zip'
  standardOutput = new ByteArrayOutputStream()
  ext.output = { return standardOutput.toString() }
 }
 
 task API(type:Exec, dependsOn: up ) {
+	println 'Test API'
 	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
 	commandLine 'python3', 'ConnectAPI.py'
 
 }
 
 task test(type:Exec ) {
-// Test Unitaires
+	println 'Test Unitaire'
 	workingDir '/var/lib/jenkins/workspace/GestionParcInformatique/PYTHON'
 	commandLine 'python3', 'test_IP.py'
 
