@@ -56,4 +56,38 @@ python Vesrion.py
         curl --location --request PUT 'http://127.0.0.1:5000/machine/Host_Name2' --form 'ip="127.0.0.3"' --form 'nb_cpu=""' --form 'ram=""' --form 'nb_disk=""' --form 'size_disk=""' --form 'os=""' --form 'version=""'
         ```
 
+### Serveur Nexus
+- Pour démmarer le serveur Nexus, lancer la commande:
+```
+vagrant up srvnexus
+```
+-  Se connecter au serveur Nexus 
+```
+vagrant ssh srvnexus
+```
+- récupérer le mot de passe du serveur Nexsus 
+```
+sudo cat /opt/nexus/sonatype-work/nexus3/admin.password
+```
+- Ouvrir votre navigateur web, taper l'adress suivante 
+```
+http://192.168.1.21:8081/
+```
+- l'interface suivante s'affiche 
+-![image info](./pictures/Nexus1.png)
+
+
+
+
+
+
+### Serveur Jenkins
+- Pour démmarer le serveur Nexus, lancer la commande:
+```
+vagrant up srvjenkins
+```
+-  Se connecter au serveur Nexus 
+ ```
+vagrant ssh srvjenkins
+```
 #####$$$$End
