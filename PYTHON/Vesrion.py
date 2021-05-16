@@ -22,7 +22,7 @@ class Version:
 #################################################
     def __init__(self):
         try :
-            monFichier = open(self.__file + "gradle.properties", "r")
+            monFichier = open( "../gradle.properties", "r")
             maLine=monFichier.readline()
             self.__prop['systemProp.http.proxyHost']=maLine.split("=")[1].strip()
             maLine=monFichier.readline()
@@ -72,7 +72,7 @@ class Version:
     def save(self):
         self.__prop['version'] +=  0.1
         self.newLicense()
-        monFichier = open(self.__file + "gradle.properties", "w")
+        monFichier = open("../gradle.properties", "w")
         v = "%.1f" % float(self.__prop['version'])
         print("la version d'update est  = {}".format(v))
         monFichier.write("systemProp.http.proxyHost={}\nsystemProp.http.proxyPort={}\nsystemProp.http.nonProxyHosts={}\nsystemProp.https.proxyHost={}\nsystemProp.https.proxyPort={}\nsystemProp.https.nonProxyHosts={}\nnom={}\nVersion={}\nauteur={}\nlicens={}\n".format(self.__prop['systemProp.http.proxyHost'],self.__prop['systemProp.http.proxyPort'],self.__prop['systemProp.http.nonProxyHosts'],self.__prop['systemProp.https.proxyHost'],self.__prop['systemProp.https.proxyPort'],self.__prop['systemProp.https.nonProxyHosts'],self.__prop['nom'],v,self.__prop['auteur'],self.__prop['licens']))
