@@ -56,7 +56,7 @@ python Vesrion.py
         curl --location --request PUT 'http://127.0.0.1:5000/machine/Host_Name2' --form 'ip="127.0.0.3"' --form 'nb_cpu=""' --form 'ram=""' --form 'nb_disk=""' --form 'size_disk=""' --form 'os=""' --form 'version=""'
         ```
 
-<<<<<<< HEAD
+
 ### Serveur Nexus
 - Pour démmarer le serveur Nexus, lancer la commande:
 ```
@@ -183,7 +183,37 @@ http://192.168.1.20:8080/
 
 ![image interface Nexsus9.](/capture/Nexus9.PNG "image interface Nexsus9.")
 
+### Configuration WEBHOOKS
 
+- Aller dans https://my.webhookrelay.com/tokens , puis create TOKEN ( copier le contenu dans fichier text)
+
+![image interface git0.](/capture/git0.PNG "image interface git0.")
+
+- Sous Jenkins lancer les commandes suivantes 
+```
+sudo relay forward --bucket github-jenkins http://localhost:8080/github-webhook/
+relay forward --bucket github-jenkins http://localhost:8080/github-webhook/
+```
+
+
+- Aller dans Git et choisir Setting, choisir webhooks puis Add Webhook
+ 
+![image interface git1.](/capture/git1.PNG "image interface git1.")
+
+- Taper dans Payload URL, l'url suivante 
+```
+https://kp0u3jsmyv7mekvs7bxujg.hooks.webhookrelay.com
+```
+
+- Taper dans secret, le code suivant 
+```
+RAxbIqNyqvNS
+
+```
+
+- Faire Modifier une modification dans le repo git, puit commit et verifier que le job jenkins se lance automatiquement 
+
+![image interface Jenkins15.](/capture/jenkins15.png "image interface jenkins15.")
 
 ##End
 
