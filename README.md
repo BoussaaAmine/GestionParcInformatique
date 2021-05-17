@@ -141,7 +141,7 @@ http://192.168.1.20:8080/
 ```
 - S'identifier avec login : admin et mot de passe récupérer dans l'étape présédente, puis Next
 
-![image interface Jenkins1.](/capture/Jenkins1.png "image interface jenkins1.")
+![image interface Jenkins1.](/capture/Jenkins1.PNG "image interface jenkins1.")
 
 - Modifer le mot de passe, puis Next 
 
