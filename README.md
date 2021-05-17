@@ -141,7 +141,7 @@ http://192.168.1.20:8080/
 ```
 - S'identifier avec login : admin et mot de passe récupérer dans l'étape présédente, puis Next
 
-![image interface Jenkins1.](/capture/jenkins1.png "image interface jenkins1.")
+![image interface Jenkins1.](/capture/Jenkins1.png "image interface jenkins1.")
 
 - Modifer le mot de passe, puis Next 
 
@@ -182,6 +182,8 @@ http://192.168.1.20:8080/
 - Aller dans l'interface Nexus, et vérifier que le paquage est bien uploder 
 
 ![image interface Nexsus9.](/capture/Nexus9.PNG "image interface Nexsus9.")
-- 
+
+
+
 ##End
 
