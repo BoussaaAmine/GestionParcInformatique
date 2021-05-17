@@ -215,5 +215,8 @@ RAxbIqNyqvNS
 
 ![image interface Jenkins15.](/capture/jenkins15.png "image interface jenkins15.")
 
+- Editer Webhooks et vérifier Recent Deliveries
+![image interface git3.](/capture/git3.PNG "image interface git3.")
+
 ##End
 
