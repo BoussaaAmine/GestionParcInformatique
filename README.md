@@ -58,7 +58,7 @@ python Vesrion.py
 
 
 ### Serveur Nexus
-- Pour démmarer le serveur Nexus, lancer la commande:
+- Pour démmarer le serveur Nexus,depuis vagrant/serv_NexusJenkins, lancer la commande:
 ```
 vagrant up nexus
 ```
@@ -111,7 +111,7 @@ http://192.168.1.21:8081/
 
 
 ### Serveur Jenkins
-- Pour démmarer le serveur Jenkins, lancer la commande:
+- Pour démmarer le serveur Jenkins,,depuis vagrant/serv_NexusJenkins, lancer la commande:
 ```
 vagrant up jenkins
 ```
