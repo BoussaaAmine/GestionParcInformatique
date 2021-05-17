@@ -211,7 +211,7 @@ RAxbIqNyqvNS
 
 ```
 
-- Faire Modifier une modification dans le repo git, puit commit et verifier que le job jenkins se lance automatiquement 
+- Faire une modification dans le repo git, puit commit et verifier que le job jenkins se lance automatiquement 
 
 ![image interface Jenkins15.](/capture/jenkins15.png "image interface jenkins15.")
 
